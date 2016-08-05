@@ -1,10 +1,10 @@
 package com.example.charlie.weatherforecastapp.observables;
 
-import com.example.charlie.weatherforecastapp.models.weatherResult;
+import com.example.charlie.weatherforecastapp.models.cityWeatherResult;
 import com.example.charlie.weatherforecastapp.utilities.Constants;
 
 import retrofit.http.GET;
-import retrofit.http.Path;
+import retrofit.http.Query;
 import rx.Observable;
 
 /**
@@ -12,6 +12,6 @@ import rx.Observable;
  */
 public interface IWeather_API {
 
-    @GET(Constants.BASE_URL + Constants.API_KEY)
-    Observable<weatherResult> getCityByName(@Path("cityname")String city_name );
+    @GET(Constants.CITY_WEATHER_BY_NAME_URL)
+    Observable<cityWeatherResult> getCityByName(@Query("q")String city_name, @Query("APPID")String key);
 }

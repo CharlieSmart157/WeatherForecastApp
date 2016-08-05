@@ -14,6 +14,9 @@ public class Rain extends RealmObject {
     @Expose
     private double _3h;
 
+    @SerializedName("1h")
+    @Expose
+    private double _1h;
     /**
      *
      * @return
@@ -31,5 +34,24 @@ public class Rain extends RealmObject {
     public void set3h(double _3h) {
         this._3h = _3h;
     }
+
+    /**
+     *
+     * @return
+     * The _1h
+     */
+    public double get1h() {
+        return _1h;
+    }
+
+    /**
+     *
+     * @param _1h
+     * The 3h
+     */
+    public void set1h(double _1h) {
+        this._1h = _1h;
+    }
+
 
 }

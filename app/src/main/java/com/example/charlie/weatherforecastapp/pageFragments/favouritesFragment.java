@@ -17,8 +17,7 @@ import com.example.charlie.weatherforecastapp.Adapters.Location_Adapter;
 import com.example.charlie.weatherforecastapp.R;
 import com.example.charlie.weatherforecastapp.content.Content_Contract;
 import com.example.charlie.weatherforecastapp.content.Content_Presenter;
-import com.example.charlie.weatherforecastapp.models.City;
-import com.example.charlie.weatherforecastapp.models.weatherResult;
+import com.example.charlie.weatherforecastapp.models.cityWeatherResult;
 
 import java.util.List;
 
@@ -72,7 +71,7 @@ public class favouritesFragment extends Fragment implements SwipeRefreshLayout.O
         mPresenter.returnFavourites();
     }
 
-    public void setAdapter(List<City> cities) {
+    public void setAdapter(List<cityWeatherResult> cities) {
         mAdapter = new Location_Adapter(getContext(),cities,R.layout.city_row_layout);
         locationRecyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
@@ -80,13 +79,14 @@ public class favouritesFragment extends Fragment implements SwipeRefreshLayout.O
 
 
     @Override
-    public void setLocation(weatherResult wR) {
+    public void setLocation(cityWeatherResult wR) {
 
 
     }
 
     @Override
-    public void setFavourites(List<City> cities) {
+    public void setFavourites(List<cityWeatherResult> cities) {
+        if(cities!=null)
         setAdapter(cities);
     }
 

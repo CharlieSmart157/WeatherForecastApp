@@ -2,8 +2,7 @@ package com.example.charlie.weatherforecastapp.content;
 
 import com.example.charlie.weatherforecastapp.BaseTemplates.BasePresenter;
 import com.example.charlie.weatherforecastapp.BaseTemplates.BaseView;
-import com.example.charlie.weatherforecastapp.models.City;
-import com.example.charlie.weatherforecastapp.models.weatherResult;
+import com.example.charlie.weatherforecastapp.models.cityWeatherResult;
 
 import java.util.List;
 
@@ -13,9 +12,9 @@ import java.util.List;
 public interface Content_Contract {
 
     interface View extends BaseView<Presenter> {
-        void setLocation(weatherResult wR);
+        void setLocation(cityWeatherResult wR);
 
-        void setFavourites(List<City> cities);
+        void setFavourites(List<cityWeatherResult> cities);
     }
 
     interface Presenter extends BasePresenter {

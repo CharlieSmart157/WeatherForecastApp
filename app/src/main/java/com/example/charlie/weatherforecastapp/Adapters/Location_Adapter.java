@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.charlie.weatherforecastapp.R;
-import com.example.charlie.weatherforecastapp.models.City;
+import com.example.charlie.weatherforecastapp.models.cityWeatherResult;
 import com.example.charlie.weatherforecastapp.utilities.ItemClickListener;
 
 import java.util.List;
@@ -21,12 +21,12 @@ import java.util.List;
  */
 public class Location_Adapter extends RecyclerView.Adapter<Location_Adapter.ItemHolder>{
 
-    private List<City> cities;
+    private List<cityWeatherResult> cities;
     private int rowLayout;
     private Context context;
     private FragmentManager fragManager;
 
-    public Location_Adapter(Context context, List<City> cities, int rowLayout){
+    public Location_Adapter(Context context, List<cityWeatherResult> cities, int rowLayout){
 
         this.cities = cities;
         this.context = context;
@@ -44,7 +44,7 @@ public class Location_Adapter extends RecyclerView.Adapter<Location_Adapter.Item
 
     @Override
     public void onBindViewHolder(ItemHolder holder, int position) {
-        final City city = cities.get(position);
+        final cityWeatherResult city = cities.get(position);
         holder.nameText.setText(city.getName());
 
 

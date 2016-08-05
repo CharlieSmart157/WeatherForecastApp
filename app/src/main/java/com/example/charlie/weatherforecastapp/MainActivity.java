@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.charlie.weatherforecastapp.Realm.RealmController;
 import com.example.charlie.weatherforecastapp.pageFragments.LocationAddFragment;
 import com.example.charlie.weatherforecastapp.pageFragments.detailViewFragment;
 import com.example.charlie.weatherforecastapp.pageFragments.favouritesFragment;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Fragment fragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        RealmController.with(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

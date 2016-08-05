@@ -11,7 +11,7 @@ public class Constants {
 
     public static final String CITY_WEATHER_BY_ID_URL= "/data/2.5/forecast/city?id={cityid}&APPID=";
 
-    public static final String CITY_WEATHER_BY_NAME_URL = "/data/2.5/weather?q={cityname}&APPID=";
+    public static final String CITY_WEATHER_BY_NAME_URL = "/data/2.5/weather";
 
 
 

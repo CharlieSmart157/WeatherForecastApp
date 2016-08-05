@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.support.v4.app.Fragment;
 
-import com.example.charlie.weatherforecastapp.models.City;
+import com.example.charlie.weatherforecastapp.models.cityWeatherResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,16 +73,16 @@ public class RealmController {
     }
 
     //find all objects in the Result.class
-    public RealmResults<City> getCities() {
+    public RealmResults<cityWeatherResult> getCities() {
 
-        return realm.where(City.class).findAll();
+        return realm.where(cityWeatherResult.class).findAll();
     }
 
     //find all objects in the Result.class
     public ArrayList<Integer> getCityIDs() {
-        List<City> RSList= new ArrayList<City>();
+        List<cityWeatherResult> RSList= new ArrayList<cityWeatherResult>();
         ArrayList<Integer>intList = new ArrayList<Integer>();
-        RSList.addAll(realm.where(City.class).equalTo("WatchList",true).findAll());
+        RSList.addAll(realm.where(cityWeatherResult.class).equalTo("WatchList",true).findAll());
         for(int i =0; i<RSList.size();i++){
             intList.add(RSList.get(i).getId());
         }
@@ -92,15 +92,15 @@ public class RealmController {
 
 
     //query a single item with the given id
-    public City getCityByName(String id) {
+    public cityWeatherResult getCityByName(String id) {
 
-        return realm.where(City.class).equalTo("name",id).findFirst();
+        return realm.where(cityWeatherResult.class).equalTo("name",id).findFirst();
     }
 
     //query a single item with the given id
-    public City getSummoner(int id) {
+    public cityWeatherResult getSummoner(int id) {
 
-        return realm.where(City.class).equalTo("id",id).findFirst();
+        return realm.where(cityWeatherResult.class).equalTo("id",id).findFirst();
     }
 
 
@@ -125,7 +125,7 @@ public class RealmController {
    //     return n;
  //   }
 
-    public void addLocalList(List<City> L){
+    public void addLocalList(List<cityWeatherResult> L){
         for(int i=0; i < L.size();i++){
 
          //   if(RealmController.getInstance().getSummoner(L.get(i).getId())==null)
@@ -138,7 +138,7 @@ public class RealmController {
         }
     }
 
-    public void addCity(City S){
+    public void addCity(cityWeatherResult S){
 
         realm.beginTransaction();
         realm.copyToRealmOrUpdate(S);
@@ -148,9 +148,9 @@ public class RealmController {
 
 
     //query example
-    public RealmResults<City> queriedResults() {
+    public RealmResults<cityWeatherResult> queriedResults() {
 
-        return realm.where(City.class)
+        return realm.where(cityWeatherResult.class)
                 .contains("author", "Author 0")
                 .or()
                 .contains("title", "Realm")

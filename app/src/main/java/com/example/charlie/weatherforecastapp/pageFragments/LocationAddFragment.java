@@ -11,8 +11,7 @@ import com.example.charlie.weatherforecastapp.MainActivity;
 import com.example.charlie.weatherforecastapp.R;
 import com.example.charlie.weatherforecastapp.content.Content_Contract;
 import com.example.charlie.weatherforecastapp.content.Content_Presenter;
-import com.example.charlie.weatherforecastapp.models.City;
-import com.example.charlie.weatherforecastapp.models.weatherResult;
+import com.example.charlie.weatherforecastapp.models.cityWeatherResult;
 
 import java.util.List;
 
@@ -60,13 +59,13 @@ public class LocationAddFragment extends android.support.v4.app.DialogFragment i
     }
 
     @Override
-    public void setLocation(weatherResult wR) {
+    public void setLocation(cityWeatherResult wR) {
         MainActivity main = (MainActivity) getActivity();
-        main.selectFragment(1, wR.getCity().getId());
+        main.selectFragment(1, wR.getId());
     }
 
     @Override
-    public void setFavourites(List<City> cities) {
+    public void setFavourites(List<cityWeatherResult> cities) {
 
     }
 }

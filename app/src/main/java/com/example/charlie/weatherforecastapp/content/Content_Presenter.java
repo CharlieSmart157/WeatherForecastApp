@@ -3,7 +3,7 @@ package com.example.charlie.weatherforecastapp.content;
 import android.util.Log;
 
 import com.example.charlie.weatherforecastapp.Realm.RealmController;
-import com.example.charlie.weatherforecastapp.models.weatherResult;
+import com.example.charlie.weatherforecastapp.models.cityWeatherResult;
 import com.example.charlie.weatherforecastapp.observables.IWeather_API;
 import com.example.charlie.weatherforecastapp.utilities.Constants;
 
@@ -33,7 +33,7 @@ public class Content_Presenter implements Content_Contract.Presenter {
         mContentView.setPresenter(this);
 
 
-        //realmController = RealmController.getInstance();
+        realmController = RealmController.getInstance();
 
 
     }
@@ -48,10 +48,10 @@ public class Content_Presenter implements Content_Contract.Presenter {
                 .build();
 
         iWeather_api = restapi.create(IWeather_API.class);
-        _subscriptions.add(iWeather_api.getCityByName(name)
+        _subscriptions.add(iWeather_api.getCityByName(name, Constants.API_KEY)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new Observer<weatherResult>() {
+                .subscribe(new Observer<cityWeatherResult>() {
                     @Override
                     public void onCompleted() {
                         //Send Results to View
@@ -66,8 +66,9 @@ public class Content_Presenter implements Content_Contract.Presenter {
                     }
 
                     @Override
-                    public void onNext(weatherResult datum) {
-                       realmController.addCity(datum.getCity());
+                    public void onNext(cityWeatherResult datum) {
+                        Log.d("CITY ", datum.getName());
+                       realmController.addCity(datum);
                       //  idNo[0] = datum.getId();
                         // mContentView.setSummoner(realmController.getSummoner(datum.getId()));
                         mContentView.setLocation(datum);
