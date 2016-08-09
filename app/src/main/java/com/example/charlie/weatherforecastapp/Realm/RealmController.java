@@ -92,9 +92,14 @@ public class RealmController {
 
 
     //query a single item with the given id
-    public cityWeatherResult getCityByName(String id) {
+       public cityWeatherResult getCityByName(String id) {
 
         return realm.where(cityWeatherResult.class).equalTo("name",id).findFirst();
+    }
+
+    public cityWeatherResult getCityById(int id) {
+
+        return realm.where(cityWeatherResult.class).equalTo("id",id).findFirst();
     }
 
     //query a single item with the given id

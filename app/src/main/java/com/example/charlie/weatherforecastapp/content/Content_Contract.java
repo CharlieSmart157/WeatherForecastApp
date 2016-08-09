@@ -20,7 +20,7 @@ public interface Content_Contract {
     interface Presenter extends BasePresenter {
 
         void returnLocationByName(String str);
-
+        void returnLocationByID(int id);
         void returnFavourites();
     }
 }

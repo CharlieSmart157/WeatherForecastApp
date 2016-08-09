@@ -82,6 +82,13 @@ public class Content_Presenter implements Content_Contract.Presenter {
     }
 
     @Override
+    public void returnLocationByID(int id) {
+
+        mContentView.setLocation(realmController.getCityById(id));
+
+    }
+
+    @Override
     public void returnFavourites() {
         mContentView.setFavourites(realmController.getCities());
     }

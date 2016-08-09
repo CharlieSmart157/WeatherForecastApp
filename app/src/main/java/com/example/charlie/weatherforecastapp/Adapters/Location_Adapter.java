@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.charlie.weatherforecastapp.MainActivity;
 import com.example.charlie.weatherforecastapp.R;
 import com.example.charlie.weatherforecastapp.models.cityWeatherResult;
 import com.example.charlie.weatherforecastapp.utilities.ItemClickListener;
@@ -54,7 +55,8 @@ public class Location_Adapter extends RecyclerView.Adapter<Location_Adapter.Item
             @Override
             public void onClick(View view, int position) {
                 Log.i("Clicked",""+position);
-
+                MainActivity main = (MainActivity)context;
+                main.selectFragment(1, city.getId());
             }
         });
     }
